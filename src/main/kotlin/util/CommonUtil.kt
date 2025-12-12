@@ -1,8 +1,6 @@
 package util
 
 import com.github.f4b6a3.ulid.Ulid
-import org.apache.commons.codec.binary.Base64
-import java.nio.ByteBuffer
 import java.util.*
 
 /**
@@ -15,13 +13,7 @@ object CommonUtil {
      * uuid를 생성하는 함수
      * @return uuid
      */
-    fun uuid(): String {
-        val uuid = UUID.randomUUID()
-        val bb = ByteBuffer.wrap(ByteArray(16))
-        bb.putLong(uuid.mostSignificantBits)
-        bb.putLong(uuid.leastSignificantBits)
-        return Base64.encodeBase64URLSafeString(bb.array())
-    }
+    fun uuid() = UUID.randomUUID()
 
     /**
      * ulid를 생성하는 함수
