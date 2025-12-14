@@ -3,18 +3,18 @@ package model
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.ss.usermodel.*
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
-import org.springframework.web.multipart.MultipartFile
 import util.ClassUtil.mapToClass
+import java.io.File
 import java.text.SimpleDateFormat
 
 class ExcelParser(
-    file: MultipartFile,
+    file: File,
     sheetIndex: Int = 0,
     val inHeader: Boolean = true
 ) {
-    private val workBook = when ((file.originalFilename ?: "").uppercase().split(".").last()) {
-        "XLS" -> HSSFWorkbook(file.inputStream)
-        "XLSX" -> XSSFWorkbook(file.inputStream)
+    private val workBook = when ((file.name ?: "").uppercase().split(".").last()) {
+        "XLS" -> HSSFWorkbook(file.inputStream())
+        "XLSX" -> XSSFWorkbook(file.inputStream())
         else -> throw Exception("invalid file type")
     }
 
@@ -138,7 +138,7 @@ class ExcelParser(
         reset()
         if (inHeader) nextRow()
 
-        forEachRow { row ->
+        forEachRow { _ ->
             val results = mutableListOf<String?>()
             forEachCell { results.add(value) }
 

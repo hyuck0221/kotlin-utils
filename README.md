@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.hyuck0221:kotlin-utils:0.0.3")
+    implementation("com.github.hyuck0221:kotlin-utils:0.0.4")
 }
 ```
 
@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.hyuck0221:kotlin-utils:0.0.3'
+    implementation 'com.github.hyuck0221:kotlin-utils:0.0.4'
 }
 ```
 
@@ -40,7 +40,7 @@ dependencies {
 <dependency>
     <groupId>com.github.hyuck0221</groupId>
     <artifactId>kotlin-utils</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 
